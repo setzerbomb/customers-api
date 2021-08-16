@@ -16,4 +16,8 @@ public enum State {
     State(String state) {
         this.state = state;
     }
+
+    public String getState() {
+        return state;
+    }
 }

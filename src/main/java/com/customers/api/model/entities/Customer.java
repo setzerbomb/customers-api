@@ -1,6 +1,5 @@
 package com.customers.api.model.entities;
 
-import com.customers.api.common.enums.Gender;
 import com.fasterxml.jackson.annotation.JsonFormat;
 import lombok.AllArgsConstructor;
 import lombok.Builder;
@@ -25,23 +24,25 @@ public class Customer implements Serializable {
 
     @Id
     private Long id;
-    private UUID uuid;
+    @Builder.Default
+    private UUID uuid = UUID.randomUUID();
     private String name;
     private String email;
-    @JsonFormat(pattern = "dd-MM-yyyy")
     private LocalDate birthdate;
     private String cpf;
     private String gender;
     @Transient
     private Address mainAddress;
     @Transient
-    private List<Address> addressList;
+    private List<Address> addresses;
     @Column("created_at")
     @CreatedDate
-    private LocalDateTime createdAt;
+    @Builder.Default
+    private LocalDateTime createdAt = LocalDateTime.now();
     @Column("updated_at")
     @LastModifiedDate
-    private LocalDateTime updatedAt;
+    @Builder.Default
+    private LocalDateTime updatedAt = LocalDateTime.now();
     @Version
     private Long version;
 }

@@ -28,11 +28,16 @@ dependencies {
 	implementation group: 'io.r2dbc', name: 'r2dbc-postgresql'
 	implementation group: 'org.postgresql', name: 'postgresql'
 	implementation group: 'io.r2dbc', name: 'r2dbc-pool'
+	implementation group: 'io.projectreactor', name: 'reactor-tools'
+	implementation group: 'org.springframework.boot', name: 'spring-boot-starter-logging'
+	implementation group: 'org.apache.commons', name: 'commons-lang3'
+	implementation 'org.jetbrains:annotations:20.1.0'
 	compileOnly 'org.projectlombok:lombok'
 	annotationProcessor 'org.projectlombok:lombok'
 	testImplementation 'org.springframework.boot:spring-boot-starter-test'
 	testImplementation 'io.projectreactor:reactor-test'
 	testImplementation group: 'com.h2database', name: 'h2'
+	testImplementation group: 'io.projectreactor.tools', name: 'blockhound'
 
 }
 

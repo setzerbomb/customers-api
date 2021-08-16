@@ -14,9 +14,7 @@ import org.springframework.data.relational.core.mapping.Table;
 
 import java.io.Serializable;
 import java.math.BigInteger;
-import java.time.LocalDate;
 import java.time.LocalDateTime;
-import java.util.UUID;
 
 @Data
 @AllArgsConstructor
@@ -30,20 +28,24 @@ public class Address implements Serializable {
     private String state;
     private String city;
     private String neighborhood;
+    @Column("zipcode")
     private String zipCode;
     private String street;
-    private String number;
+    private Integer number;
+    @Column("additionalinformation")
     private String additionalInformation;
     @Builder.Default
     private Boolean main = Boolean.FALSE;
     @JsonIgnore
-    private BigInteger customer;
+    private Long customer;
     @Column("created_at")
     @CreatedDate
-    private LocalDateTime createdAt;
+    @Builder.Default
+    private LocalDateTime createdAt = LocalDateTime.now();
     @Column("updated_at")
     @LastModifiedDate
-    private LocalDateTime updatedAt;
+    @Builder.Default
+    private LocalDateTime updatedAt = LocalDateTime.now();
     @Version
     private Long version;
 }
